@@ -1,5 +1,4 @@
 package mainalgorithm;
-import java.util.Scanner;
 import materials.Concrete;
 import materials.DimensionsOfCrossSectionOfConcrete;
 import materials.Steel;

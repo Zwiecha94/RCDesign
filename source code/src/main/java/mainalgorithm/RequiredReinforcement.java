@@ -491,7 +491,7 @@ public class RequiredReinforcement {
 
 			///Zbrojenie symetryczne
 			
-			double reinforcementRatio = 0.009;
+			double reinforcementRatio = 0.04 * dimensions.getAc();
 			double mEd = forces.getKey();
 			/// Petla dopoki stopien zbrojenia dobranego i zaprojektowanego jest wieksza
 			/// rowna 0.1
@@ -501,7 +501,7 @@ public class RequiredReinforcement {
 				reinforcement.setReinforcementRatio(reinforcementRatio);
 				
 				/// Metoda nominalnej sztywnosci - nowy moment
-				mEd += 2;
+				mEd = NominalStiffness.getMEd();
 				
 				//Obliczenie zbrojenia
 				if (forces.getValue() > 0) {
@@ -524,15 +524,17 @@ public class RequiredReinforcement {
 			
 			//Zbrojenie niesymetryczne
 			
-			reinforcementRatio = 0.009;
+			reinforcementRatio = 0.04 * dimensions.getAc();
 			/// Petla dopoki stopien zbrojenia dobranego i zaprojektowanego jest wieksza
 			/// rowna 0.1
+			 
 			do {
-				/// Przyjmij stopien zbrojenia
-				reinforcementRatio += 0.001;
+			/// Przyjmij stopien zbrojenia
+				reinforcementRatio += 0.01;
 				reinforcement.setReinforcementRatio(reinforcementRatio);
-				
+								
 				/// Metoda nominalnej sztywnosci - nowy moment
+				
 				mEd += 2;
 				
 				//Obliczenie zbrojenia
